@@ -24,11 +24,9 @@ class UpdateOrderRequest extends ApiRequest
     {
         return [
             'orders' => 'required|array',
-            'orders.product_id' => 'required|exists:products,id',
-            'orders.quantity' => 'required|numeric',
-            'orders.price' => 'required|numeric',
+            'orders.*.product_id' => 'required|exists:products,id',
+            'orders.*.quantity' => 'required|numeric',
+            'orders.*.price' => 'required|numeric',
         ];
     }
-
-  
 }

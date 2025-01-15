@@ -100,10 +100,6 @@ class OrderRepository implements RepositoryInterface
             }
 
             $order->update($data);
-            $order->products()->sync([$data['product_id'] => [
-                'quantity' => $data['quantity'],
-                'price' => $data['price'],
-            ]]);
             DB::commit();
             return $this->successResponse($order, 'Order updated successfully');
         } catch (Exception $e) {
