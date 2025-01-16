@@ -144,7 +144,6 @@ The API documentation is available on Postman. You can access it using the follo
    - `id`: Primary key
    - `user_id`: Foreign key referencing `users.id`
    - `order_id`: Foreign key referencing `orders.id`
-   - `product_id`: Foreign key referencing `products.id`
    - `ammount`: Transaction amount
    - `status`: Transaction status (0: pending, 1: successful, 2: failed)
    - `timestamps`: Created at and updated at timestamps
