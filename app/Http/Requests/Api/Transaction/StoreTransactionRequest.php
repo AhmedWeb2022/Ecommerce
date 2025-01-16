@@ -24,7 +24,6 @@ class StoreTransactionRequest extends ApiRequest
     {
         return [
             'order_id' => 'required|exists:orders,id',
-            'product_id' => 'required|exists:products,id',
             'ammount' => 'required|numeric',
         ];
     }
