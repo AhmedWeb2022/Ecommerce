@@ -63,4 +63,34 @@ class OrderService
 
         return $this->success(new OrderResource($response['data']), $response['message']);
     }
+
+    public function update(array $data, int $id)
+    {
+        $data['total_amount'] = calculateTotalAmount($data['orders']);
+        // dd($data);
+        $data['user_id'] = auth('api')->user()->id;
+        $orderParam = $this->orderParam->setParams($data);
+        $response = $this->orderRepository->update($id, $orderParam->toArray());
+        $order_products = [];
+        foreach ($data['orders'] as $product) {
+            $order_products[$product['product_id']] = [
+                'quantity' => $product['quantity'],
+                'price' => $product['price'],
+            ];
+        }
+        $response['data']->products()->sync($order_products);
+        if (!$response['status']) {
+            return $this->error($response['message']);
+        }
+        return $this->success(new OrderResource($response['data']), $response['message']);
+    }
+
+    public function delete(int $id)
+    {
+        $response = $this->orderRepository->delete($id);
+        if (!$response['status']) {
+            return $this->error($response['message']);
+        }
+        return $this->success(null, $response['message']);
+    }
 }

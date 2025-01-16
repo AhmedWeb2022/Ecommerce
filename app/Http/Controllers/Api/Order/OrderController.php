@@ -32,4 +32,14 @@ class OrderController extends Controller
         return $this->orderService->create($request->all());
     }
 
+    public function update(UpdateOrderRequest $request, $id)
+    {
+        return $this->orderService->update($request->all(), $id);
+    }
+
+    public function destroy($id)
+    {
+        return $this->orderService->delete($id);
+    }
+
 }

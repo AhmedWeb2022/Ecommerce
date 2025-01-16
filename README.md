@@ -1,6 +1,6 @@
 
 
-# PaySky
+# E_Commerce
 
 This is a Laravel 11 project that includes API endpoints for managing products, orders, transactions, and user authentication. Below are the setup instructions, API documentation, and database schema details.
 
@@ -18,7 +18,7 @@ This is a Laravel 11 project that includes API endpoints for managing products, 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/AhmedWeb2022/PaySkyTask.git
+   git clone https://github.com/AhmedWeb2022/Ecommerce.git
    cd <project-folder>
    ```
 
@@ -62,8 +62,8 @@ This is a Laravel 11 project that includes API endpoints for managing products, 
 
 The API documentation is available on Postman. You can access it using the following links:
 
-- **Postman Documentation:** [API Documentation](https://web.postman.co/workspace/ee33405a-8f34-412d-8451-a7bafe3348f7/documentation/39361869-497c47ae-a8f1-4bcf-a468-c7efce26b8d1)
-- **Postman Collection:** [API Collection](https://web.postman.co/workspace/ee33405a-8f34-412d-8451-a7bafe3348f7/collection/39361869-497c47ae-a8f1-4bcf-a468-c7efce26b8d1?action=share&source=copy-link&creator=39361869)
+- **Postman Documentation:** [API Documentation](https://crimson-space-30579.postman.co/workspace/6ad63876-1d24-48c2-9905-7fbfb8e34cfb/documentation/39361869-497c47ae-a8f1-4bcf-a468-c7efce26b8d1)
+- **Postman Collection:** [API Collection](https://crimson-space-30579.postman.co/workspace/New-Team-Workspace~6ad63876-1d24-48c2-9905-7fbfb8e34cfb/collection/39361869-497c47ae-a8f1-4bcf-a468-c7efce26b8d1?action=share&creator=39361869)
 
 ### API Endpoints
 
@@ -125,6 +125,7 @@ The API documentation is available on Postman. You can access it using the follo
 
 4. **Orders Table**
    - `id`: Primary key
+   - `user_id`: Foreign key referencing `users.id`
    - `total_amount`: Total amount of the order
    - `status`: Order status (0: pending, 1: successful, 2: failed)
    - `timestamps`: Created at and updated at timestamps
